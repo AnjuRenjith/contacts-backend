@@ -53,7 +53,7 @@ const loginUser = asyncHandler( async (req,res) => {
             
         },
         process.env.ACCESS_SECRET_TOKEN,
-        {expiresIn:"1m"});
+        {expiresIn:"15m"});
         res.status(200).json({accessToken});
 
     }else{
@@ -67,7 +67,7 @@ const loginUser = asyncHandler( async (req,res) => {
 //@route POST /api/users/login
 //@access private
 const currentUser = asyncHandler( async (req,res) => {
-    res.json({message : 'Current user'});
+    res.json(req.user);
 });
 
 

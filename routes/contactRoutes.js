@@ -5,10 +5,11 @@ const {
     createContact, 
     updateContact, 
     deleteContact 
-    } = require('../controllers/contactController')
+    } = require('../controllers/contactController');
+const validateToken = require('../middleware/validateTokenHandler');
 
 const router = express.Router();
-
+router.use(validateToken);
 router.route("/").get(getContacts);
 router.route("/:id").get(getContact);
 router.route("/").post(createContact);
